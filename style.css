@@ -1,5 +1,5 @@
 /*==========================
-GOOGLE FONT
+GOOGLE FONT & RESET
 ==========================*/
 
 *{
@@ -10,363 +10,139 @@ GOOGLE FONT
 }
 
 :root{
-
     --bg:#030712;
     --bg2:#0b1120;
     --gold:#f4c542;
     --white:#ffffff;
     --text:#d1d5db;
-
 }
 
 body{
-
     font-family:'Poppins',sans-serif;
     background:var(--bg);
     color:var(--white);
     overflow-x:hidden;
-
 }
 
 a{
-
     text-decoration:none;
     color:inherit;
-
 }
 
 ul{
-
     list-style:none;
-
 }
 
 /*==========================
-SPACE BACKGROUND
+SPACE BACKGROUND & SOLAR SYSTEM
 ==========================*/
 
 .space{
-
     position:fixed;
     inset:0;
     z-index:-10;
     overflow:hidden;
-    background:
-    radial-gradient(circle at center,#071126,#020308 80%);
-
+    background: radial-gradient(circle at center,#071126,#020308 80%);
 }
 
-/*==========================
-STARS
-==========================*/
-
 .stars{
-
     position:absolute;
     width:100%;
     height:100%;
-    background-image:
-    radial-gradient(#fff 1px,transparent 1px);
+    background-image: radial-gradient(#fff 1px,transparent 1px);
     background-size:60px 60px;
     opacity:.3;
     animation:starsMove 100s linear infinite;
-
 }
 
 @keyframes starsMove{
-
-    from{
-
-        transform:translateY(0);
-
-    }
-
-    to{
-
-        transform:translateY(-600px);
-
-    }
-
+    from{ transform:translateY(0); }
+    to{ transform:translateY(-600px); }
 }
 
-/*==========================
-SUN
-==========================*/
+.solar-system{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    z-index:-9;
+    pointer-events:none;
+}
 
 .sun{
-
     width:180px;
     height:180px;
-
     border-radius:50%;
-
-    background:url("images/sun.png") center/cover no-repeat;
-
+    background:url("images/sun.png") center/cover no-repeat, #ffb703;
     position:absolute;
-
     left:50%;
     top:50%;
-
     transform:translate(-50%,-50%);
-
     box-shadow:
     0 0 60px #ffb703,
     0 0 120px #fb8500,
     0 0 200px #fb8500;
-
 }
-/*==========================
-ORBITS
-==========================*/
 
 .orbit{
-
     position:absolute;
     left:50%;
     top:50%;
     transform:translate(-50%,-50%);
     border:1px solid rgba(255,255,255,.08);
     border-radius:50%;
-    animation:rotate linear infinite;
-
-}
-
-@keyframes rotate{
-
-    from{
-
-        transform:translate(-50%,-50%) rotate(0deg);
-
-    }
-
-    to{
-
-        transform:translate(-50%,-50%) rotate(360deg);
-
-    }
-
 }
 
 .planet{
-
     position:absolute;
     top:50%;
     right:-8px;
     transform:translateY(-50%);
     border-radius:50%;
-
 }
 
-/* Mercury */
+/* Orbit Sizes & Animations */
 
-.mercury{
+.mercury-orbit{ width:240px; height:240px; animation: orbit 8s linear infinite; }
+.venus-orbit{ width:320px; height:320px; animation: orbit 12s linear infinite; }
+.earth-orbit{ width:420px; height:420px; animation: orbit 18s linear infinite; }
+.mars-orbit{ width:520px; height:520px; animation: orbit 22s linear infinite; }
+.jupiter-orbit{ width:670px; height:670px; animation: orbit 30s linear infinite; }
+.saturn-orbit{ width:830px; height:830px; animation: orbit 36s linear infinite; }
+.uranus-orbit{ width:980px; height:980px; animation: orbit 42s linear infinite; }
+.neptune-orbit{ width:1140px; height:1140px; animation: orbit 48s linear infinite; }
 
-    width:220px;
-    height:220px;
-    animation-duration:8s;
-
+@keyframes orbit{
+    from{ transform:translate(-50%,-50%) rotate(0deg); }
+    to{ transform:translate(-50%,-50%) rotate(360deg); }
 }
 
-.mercury-planet{
+/* Planets Styling */
 
-    width:10px;
-    height:10px;
-
-    background:url("images/mercury.png") center/cover no-repeat;
-
-    border-radius:50%;
-
-}
-
-/* Venus */
-
-.venus{
-
-    width:320px;
-    height:320px;
-    animation-duration:12s;
-
-}
-
-.venus-planet{
-
-    width:14px;
-    height:14px;
-
-    background:url("images/venus.png") center/cover no-repeat;
-
-    border-radius:50%;
-
-}
-
-/* Earth */
-
-.earth{
-
-    width:430px;
-    height:430px;
-    animation-duration:18s;
-
-}
-
-.earth-planet{
-
-    width:16px;
-    height:16px;
-
-    background:url("images/earth.png") center/cover no-repeat;
-
-    border-radius:50%;
-
-}
-
-/* Mars */
-
-.mars{
-
-    width:540px;
-    height:540px;
-    animation-duration:22s;
-
-}
-
-.mars-planet{
-
-    width:12px;
-    height:12px;
-
-    background:url("images/mars.png") center/cover no-repeat;
-
-    border-radius:50%;
-
-}
-
-/* Jupiter */
-
-.jupiter{
-
-    width:670px;
-    height:670px;
-    animation-duration:30s;
-
-}
-
-.jupiter-planet{
-
-    width:34px;
-    height:34px;
-
-    background:url("images/jupiter.png") center/cover no-repeat;
-
-    border-radius:50%;
-
-}
-
-/* Saturn */
-
-.saturn{
-
-    width:820px;
-    height:820px;
-    animation-duration:36s;
-
-}
-
-.saturn-planet{
-
-    position:relative;
-
-    width:30px;
-    height:30px;
-
-    background:url("images/saturn.png") center/cover no-repeat;
-
-    border-radius:50%;
-
-}
+.mercury-planet, .mercury{ width:10px; height:10px; background:url("images/mercury.png") center/cover no-repeat, #8c8c8c; border-radius:50%; }
+.venus-planet, .venus{ width:14px; height:14px; background:url("images/venus.png") center/cover no-repeat, #d8b27b; border-radius:50%; }
+.earth-planet, .earth{ width:16px; height:16px; background:url("images/earth.png") center/cover no-repeat, #2b82ff; border-radius:50%; }
+.mars-planet, .mars{ width:12px; height:12px; background:url("images/mars.png") center/cover no-repeat, #d26b4d; border-radius:50%; }
+.jupiter-planet, .jupiter{ width:34px; height:34px; background:url("images/jupiter.png") center/cover no-repeat, #d7a16c; border-radius:50%; }
+.saturn-planet, .saturn{ position:relative; width:30px; height:30px; background:url("images/saturn.png") center/cover no-repeat, #e8c98b; border-radius:50%; }
 
 .saturn-planet::before{
-
     content:"";
-
     position:absolute;
-
     width:48px;
     height:10px;
-
     border:2px solid rgba(230,210,160,.8);
-
     border-radius:50%;
-
     left:50%;
     top:50%;
-
     transform:translate(-50%,-50%) rotate(-20deg);
-
 }
 
+.uranus-planet, .uranus{ width:18px; height:18px; background:url("images/uranus.png") center/cover no-repeat, #8ed8ff; border-radius:50%; }
+.neptune-planet, .neptune{ width:18px; height:18px; background:url("images/neptune.png") center/cover no-repeat, #426cff; border-radius:50%; }
 
-.saturn-planet::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:48px;
-    height:10px;
-
-    border:2px solid rgba(230,210,160,.8);
-
-    border-radius:50%;
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%) rotate(-20deg);
-
-}
-
-/* Uranus */
-
-.uranus{
-
-    width:980px;
-    height:980px;
-    animation-duration:42s;
-
-}
-
-.uranus-planet{
-
-    width:18px;
-    height:18px;
-
-    background:url("images/uranus.png") center/cover no-repeat;
-
-    border-radius:50%;
-
-}
-
-/* Neptune */
-
-.neptune{
-
-    width:1140px;
-    height:1140px;
-    animation-duration:48s;
-
-}
-
-.neptune-planet{
-
-    width:18px;
-    height:18px;
-
-    background:url("images/neptune.png") center/cover no-repeat;
-
-    border-radius:50%;
-
-}
 /*==========================
 HEADER
 ==========================*/
@@ -459,9 +235,7 @@ HERO
     font-size:18px;
 }
 
-/*==========================
-BUTTONS
-==========================*/
+/* BUTTONS */
 
 .hero-btns{
     display:flex;
@@ -494,9 +268,7 @@ BUTTONS
     color:#000;
 }
 
-/*==========================
-SOCIAL ICONS
-==========================*/
+/* SOCIAL ICONS */
 
 .socials{
     display:flex;
@@ -522,34 +294,6 @@ SOCIAL ICONS
 }
 
 /*==========================
-RESPONSIVE
-==========================*/
-
-@media(max-width:900px){
-
-    nav{
-        display:none;
-    }
-
-    .menu-btn{
-        display:block;
-    }
-
-    .hero h1{
-        font-size:48px;
-    }
-
-    .hero h2{
-        font-size:26px;
-    }
-
-    .hero-btns{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-}
-/*==========================
 COMMON SECTION
 ==========================*/
 
@@ -559,27 +303,21 @@ section{
 }
 
 .section-title{
-
     text-align:center;
     font-size:48px;
     margin-bottom:15px;
-
 }
 
 .section-title span{
-
     color:var(--gold);
-
 }
 
 .section-text{
-
     max-width:750px;
     margin:0 auto 70px;
     text-align:center;
     color:var(--text);
     line-height:1.8;
-
 }
 
 /*==========================
@@ -587,84 +325,63 @@ ABOUT
 ==========================*/
 
 .about-container{
-
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:60px;
     align-items:center;
-
 }
 
 .about-card{
-
     background:rgba(255,255,255,.05);
     backdrop-filter:blur(18px);
     border:1px solid rgba(255,255,255,.08);
     border-radius:20px;
     padding:45px;
     transition:.4s;
-
 }
 
 .about-card:hover{
-
     transform:translateY(-12px);
-
     border-color:var(--gold);
-
 }
 
 .about-card h3{
-
     color:var(--gold);
     font-size:28px;
     margin-bottom:20px;
-
 }
 
 .about-card p{
-
     color:var(--text);
     line-height:2;
-
 }
 
 .about-info{
-
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:20px;
-
 }
 
 .info-box{
-
     background:rgba(255,255,255,.05);
     padding:25px;
     border-radius:16px;
     text-align:center;
     transition:.3s;
-
 }
 
 .info-box:hover{
-
     background:rgba(244,197,66,.15);
-
 }
 
 .info-box h2{
-
     color:var(--gold);
     font-size:34px;
-
 }
 
 .info-box p{
-
     margin-top:10px;
     color:#ddd;
-
 }
 
 /*==========================
@@ -672,151 +389,55 @@ SKILLS
 ==========================*/
 
 .skills-grid{
-
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:35px;
-
 }
-
-.skill{
-
-    margin-bottom:25px;
-
-}
-
-.skill h4{
-
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:12px;
-
-}
-
-.bar{
-
-    width:100%;
-    height:12px;
-    background:#1b2232;
-    border-radius:30px;
-    overflow:hidden;
-
-}
-
-.progress{
-
-    height:100%;
-    border-radius:30px;
-    background:linear-gradient(90deg,#f4c542,#ffb703);
-
-}
-
-/* Individual Skills */
-
-.html{
-
-    width:90%;
-
-}
-
-.css{
-
-    width:88%;
-
-}
-
-.js{
-
-    width:70%;
-
-}
-
-.ui{
-
-    width:92%;
-
-}
-
-.git{
-
-    width:80%;
-
-}
-
-.github{
-
-    width:85%;
-
-}
-
-/*==========================
-SKILL CARD
-==========================*/
 
 .skill-card{
-
     background:rgba(255,255,255,.05);
     border-radius:20px;
     padding:35px;
     border:1px solid rgba(255,255,255,.08);
     transition:.35s;
-
 }
 
 .skill-card:hover{
-
     transform:translateY(-10px);
-
     border-color:var(--gold);
-
 }
 
 .skill-card i{
-
     font-size:40px;
     color:var(--gold);
     margin-bottom:20px;
-
 }
 
 .skill-card h3{
-
     margin-bottom:15px;
-
 }
 
-.skill-card p{
-
-    color:var(--text);
-    line-height:1.8;
-
+.bar{
+    width:100%;
+    height:12px;
+    background:#1b2232;
+    border-radius:30px;
+    overflow:hidden;
 }
 
-/*==========================
-RESPONSIVE
-==========================*/
-
-@media(max-width:900px){
-
-.about-container{
-
-grid-template-columns:1fr;
-
+.progress{
+    height:100%;
+    border-radius:30px;
+    background:linear-gradient(90deg,#f4c542,#ffb703);
 }
 
-.about-info{
+.html{ width:90%; }
+.css{ width:88%; }
+.js{ width:70%; }
+.ui{ width:92%; }
+.git{ width:80%; }
+.github{ width:85%; }
 
-grid-template-columns:1fr;
-
-}
-
-.skills-grid{
-
-grid-template-columns:1fr;
-
-}
-
-}
 /*==========================
 PROJECTS
 ==========================*/
@@ -912,16 +533,6 @@ PROJECTS
     transform:translateY(-4px);
 }
 
-.project-links a:last-child{
-    background:transparent;
-    border:2px solid var(--gold);
-    color:var(--gold);
-}
-
-.project-links a:last-child:hover{
-    background:var(--gold);
-    color:#000;
-}
 /*==========================
 RESUME
 ==========================*/
@@ -962,122 +573,76 @@ CONTACT
 }
 
 .contact-info{
-
     display:flex;
     flex-direction:column;
     gap:25px;
-
 }
 
 .contact-box{
-
     display:flex;
     align-items:center;
     gap:20px;
-
     background:rgba(255,255,255,.05);
-
     padding:25px;
-
     border-radius:18px;
-
 }
 
 .contact-box i{
-
     width:60px;
     height:60px;
-
     background:var(--gold);
-
     color:#000;
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     border-radius:50%;
-
     font-size:22px;
-
 }
 
 .contact-box h3{
-
     margin-bottom:5px;
-
 }
 
 .contact-box p{
-
     color:var(--text);
-
 }
 
 .contact-form{
-
     display:flex;
-
     flex-direction:column;
-
     gap:20px;
-
 }
 
 .contact-form input,
-
 .contact-form textarea{
-
     width:100%;
-
     padding:18px;
-
     border:none;
-
     outline:none;
-
     border-radius:15px;
-
     background:rgba(255,255,255,.05);
-
     color:white;
-
 }
 
 .contact-form textarea{
-
     resize:none;
-
     height:180px;
-
 }
 
 .contact-form button{
-
     padding:16px;
-
     border:none;
-
     border-radius:50px;
-
     background:var(--gold);
-
     color:#000;
-
     font-size:17px;
-
     font-weight:600;
-
     cursor:pointer;
-
     transition:.3s;
-
 }
 
 .contact-form button:hover{
-
     transform:translateY(-5px);
-
 }
 
 /*==========================
@@ -1085,21 +650,14 @@ FOOTER
 ==========================*/
 
 footer{
-
     padding:40px;
-
     text-align:center;
-
     border-top:1px solid rgba(255,255,255,.08);
-
     margin-top:80px;
-
 }
 
 footer p{
-
     color:#aaa;
-
 }
 
 /*==========================
@@ -1107,351 +665,36 @@ BACK TO TOP
 ==========================*/
 
 .top-btn{
-
     position:fixed;
-
     right:30px;
-
     bottom:30px;
-
     width:55px;
-
     height:55px;
-
     border-radius:50%;
-
     background:var(--gold);
-
     color:#000;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     cursor:pointer;
-
     box-shadow:0 10px 30px rgba(244,197,66,.4);
-
     transition:.3s;
-
 }
 
 .top-btn:hover{
-
     transform:translateY(-8px);
-
 }
 
 /*==========================
-RESPONSIVE
+RESPONSIVE MEDIA QUERIES
 ==========================*/
 
 @media(max-width:900px){
-
-.contact-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.resume-card{
-
-padding:30px;
-
-}
-
-}
-/* ==========================
-SOLAR SYSTEM
-========================== */
-
-.solar-system{
-
-    position:absolute;
-    inset:0;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    overflow:hidden;
-
-    z-index:0;
-
-}
-/* ==========================
-SUN
-========================== */
-
-.sun{
-
-    position:absolute;
-
-    width:180px;
-    height:180px;
-
-    border-radius:50%;
-
-    background:#ffb703;
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
-
-    box-shadow:
-        0 0 60px #ffb703,
-        0 0 120px #fb8500,
-        0 0 200px #fb8500;
-
-}
-/* ==========================
-ORBITS
-========================== */
-
-.orbit{
-
-    position:absolute;
-
-    border:1px solid rgba(255,255,255,.12);
-
-    border-radius:50%;
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
-
-}
-
-.mercury-orbit{
-
-    width:240px;
-    height:240px;
-
-}
-
-.venus-orbit{
-
-    width:320px;
-    height:320px;
-
-}
-
-.earth-orbit{
-
-    width:420px;
-    height:420px;
-
-}
-
-.mars-orbit{
-
-    width:520px;
-    height:520px;
-
-}
-
-.jupiter-orbit{
-
-    width:670px;
-    height:670px;
-
-}
-
-.saturn-orbit{
-
-    width:830px;
-    height:830px;
-
-}
-
-.uranus-orbit{
-
-    width:980px;
-    height:980px;
-
-}
-
-.neptune-orbit{
-
-    width:1140px;
-    height:1140px;
-
-}
-/* ==========================
-PLANETS
-========================== */
-
-.planet{
-
-    position:absolute;
-
-    border-radius:50%;
-
-    top:50%;
-
-    left:100%;
-
-    transform:translate(-50%,-50%);
-
-}
-.mercury{
-
-    width:8px;
-    height:8px;
-
-    background:#8c8c8c;
-
-}
-
-.venus{
-
-    width:14px;
-    height:14px;
-
-    background:#d8b27b;
-
-}
-
-.earth{
-
-    width:16px;
-    height:16px;
-
-    background:#2b82ff;
-
-}
-
-.mars{
-
-    width:12px;
-    height:12px;
-
-    background:#d26b4d;
-
-}
-
-.jupiter{
-
-    width:34px;
-    height:34px;
-
-    background:#d7a16c;
-
-}
-
-.saturn{
-
-    width:28px;
-    height:28px;
-
-    background:#e8c98b;
-
-}
-
-.uranus{
-
-    width:22px;
-    height:22px;
-
-    background:#8ed8ff;
-
-}
-
-.neptune{
-
-    width:22px;
-    height:22px;
-
-    background:#426cff;
-
-}
-/* ==========================
-ORBIT ANIMATION
-========================== */
-
-.mercury-orbit{
-    animation: orbit 6s linear infinite;
-}
-
-.venus-orbit{
-    animation: orbit 10s linear infinite;
-}
-
-.earth-orbit{
-    animation: orbit 14s linear infinite;
-}
-
-.mars-orbit{
-    animation: orbit 18s linear infinite;
-}
-
-.jupiter-orbit{
-    animation: orbit 28s linear infinite;
-}
-
-.saturn-orbit{
-    animation: orbit 36s linear infinite;
-}
-
-.uranus-orbit{
-    animation: orbit 46s linear infinite;
-}
-
-.neptune-orbit{
-    animation: orbit 60s linear infinite;
-}
-
-@keyframes orbit{
-
-    from{
-        transform:translate(-50%,-50%) rotate(0deg);
-    }
-
-    to{
-        transform:translate(-50%,-50%) rotate(360deg);
-    }
-
-}
-/* ==========================
-PREMIUM EFFECTS
-========================== */
-
-.header{
-
-    border-bottom:4px solid #2563eb;
-
-}
-
-.left{
-
-    background:linear-gradient(180deg,#2563eb,#1e40af);
-
-}
-
-.project{
-
-    background:#f8fafc;
-
-    border-left:5px solid #2563eb;
-
-    border-radius:10px;
-
-    padding:18px;
-
-    margin-bottom:20px;
-
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-
-}
-
-.project:hover{
-
-    transform:translateY(-4px);
-
-    transition:.3s;
-
+    nav{ display:none; }
+    .menu-btn{ display:block; }
+    .hero h1{ font-size:48px; }
+    .hero h2{ font-size:26px; }
+    .hero-btns{ flex-direction:column; align-items:flex-start; }
+    .about-container, .about-info, .skills-grid, .contact-grid{ grid-template-columns:1fr; }
+    .resume-card{ padding:30px; }
 }
